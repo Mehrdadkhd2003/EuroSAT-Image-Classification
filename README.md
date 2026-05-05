@@ -18,7 +18,6 @@ A comprehensive Deep Learning project for classifying satellite images into 10 d
 - [Results & Evaluation](#-results--evaluation)
 - [Model Deployment (ONNX)](#-model-deployment-onnx)
 - [Repository Structure](#-repository-structure)
-- [How to Run](#-how-to-run)
 
 ---
 
