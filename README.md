@@ -4,9 +4,9 @@
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.x-red)
 ![ONNX](https://img.shields.io/badge/ONNX-Supported-lightgrey)
-![Accuracy](https://img.shields.io/badge/Best_Accuracy-94.54%25-brightgreen)
+![Accuracy](https://img.shields.io/badge/Best_Accuracy-94.69%25-brightgreen)
 
-A comprehensive Deep Learning project for classifying satellite images into 10 different land-use categories. This repository explores custom CNN architectures, state-of-the-art models (Inception, ResNet, SENet, SqueezeNet), hyperparameter tuning, and cross-framework model deployment using ONNX.
+A comprehensive Deep Learning project for classifying satellite images into 10 different land-use categories. This repository explores custom CNN architectures, state-of-the-art models (Inception, ResNet, SE-ResNet, SqueezeNet), hyperparameter tuning, and cross-framework model deployment using ONNX.
 
 ---
 
@@ -23,12 +23,12 @@ A comprehensive Deep Learning project for classifying satellite images into 10 d
 ---
 
 ## 🔍 Project Overview
-The goal of this project is to accurately classify satellite images from the **EuroSat** dataset. By designing from-scratch Baseline CNNs, tuning their hyperparameters, and implementing modern architectures like **Inception**, **ResNet**, **SENet**, and **SqueezeNet**, this project demonstrates a deep understanding of CNN design patterns. The final, most optimized model is then exported and evaluated in a different deep learning framework (PyTorch) using **ONNX** to simulate a real-world production deployment.
+The goal of this project is to accurately classify satellite images from the **EuroSat** dataset. By designing from-scratch Baseline CNNs, tuning their hyperparameters, and implementing modern architectures like **Inception**, **ResNet**, **SE-ResNet**, and **SqueezeNet**, this project demonstrates a deep understanding of CNN design patterns. The final, most optimized model is then exported and evaluated in a different deep learning framework (PyTorch) using **ONNX** to simulate a real-world production deployment.
 
 ---
 
 ## 🛰️ Dataset
-We use the **[EuroSat Dataset](https://github.com/phelber/eurosat)** (downloaded via Kaggle), which contains:
+We use the **[EuroSAT Dataset](https://www.kaggle.com/datasets/apollo2506/eurosat-dataset)** (downloaded via Kaggle), which contains:
 - **Total Images:** 27,000
 - **Format:** RGB Images, $64 \times 64$ pixels
 - **Classes:** 10 distinct land-use categories (e.g., Forest, Highway, Residential, etc.)
@@ -52,11 +52,11 @@ To ensure robust training and prevent data-loading bottlenecks:
 Several architectures were implemented and compared:
 
 1. **Baseline CNN:** Custom 3-layer Convolutional network (32, 64, 128 filters) with $3 \times 3$ kernels, MaxPooling, BatchNorm, Dropout (0.25), L2 Regularization ($1e-4$), and He Initialization.
-2. **Tuned CNN:** Extensively tuned using 10 different hyperparameter combinations to find the optimal setup.
+2. **Tuned CNN:** Extensively tuned using different hyperparameter combinations (via Keras Tuner) to find the optimal setup.
 3. **Inception-Based Model:** Custom implementation featuring a Stem, Inception-A/C blocks, and Reduction-A block.
 4. **ResNet:** Residual architecture utilizing skip connections to improve gradient flow.
-5. **SENet:** Incorporation of Squeeze-and-Excitation blocks to adaptively recalibrate channel-wise feature responses.
-6. **SqueezeNet:** A lightweight architecture designed to minimize parameters while maintaining accuracy.
+5. **SE-ResNet:** Incorporation of Squeeze-and-Excitation blocks within a Residual network to adaptively recalibrate channel-wise feature responses.
+6. **SqueezeNet:** A lightweight architecture utilizing fire modules, designed to minimize parameters.
 
 ---
 
@@ -66,26 +66,26 @@ Despite SqueezeNet having around 700,000 parameters, the **Inception-based archi
 
 ### 🏆 Model Comparison
 
-| Model | Parameters | Training Acc | Validation Acc | Test Acc / Notes |
-|-------|------------|--------------|----------------|------------------|
-| **Baseline CNN** | - | - | - | 94.02% |
-| **Tuned CNN** | - | - | 89.75% | 94.30% |
-| **ResNet** | - | 99.99% | 94.40% | - |
-| **⭐ Inception-based**| **~300k** | **99.98%** | **94.54%** | **Best Performing Model** |
-
-> *Note: SENet and SqueezeNet full metric tables are available in the project report.*
+| Model | Parameters | Test Accuracy | Notes |
+|-------|------------|---------------|-------|
+| **Baseline CNN** | - | 94.02% | Custom built from scratch |
+| **Tuned CNN** | - | 94.30% | Optimized via Keras Tuner |
+| **⭐ Inception-based**| **~300k** | **94.69%** | **Best Performing Model** |
+| **ResNet** | - | 94.37% | - |
+| **SE-ResNet** | - | 93.56% | - |
+| **SqueezeNet** | ~700k | 87.98% | Lightweight architecture approach |
 
 ### 📈 Training Curves & Confusion Matrices
 *(Replace the placeholder links below with your actual image paths once you push to GitHub)*
 
 **Inception Model - Confusion Matrix:**
 <p align="center">
-  <img src="path_to_your_images/inception_confusion_matrix.png" alt="Inception Confusion Matrix" width="400"/>
+  <img src="images/inception_confusion_matrix.png" alt="Inception Confusion Matrix" width="400"/>
 </p>
 
 **Inception Model - Accuracy & Loss:**
 <p align="center">
-  <img src="path_to_your_images/inception_loss_acc.png" alt="Inception Training Plots" width="600"/>
+  <img src="images/inception_loss_acc.png" alt="Inception Training Plots" width="600"/>
 </p>
 
 *The diagonal dominance in our confusion matrices indicates strong class separation with very minimal inter-class confusion.*
@@ -107,7 +107,6 @@ This proves the model's portability across different Deep Learning frameworks wi
 ```text
 📦 EuroSat-Classification
  ┣ 📂 data/               # Instructions/scripts for downloading the dataset
- ┣ 📂 models/             # Saved models (.h5) and ONNX files
  ┣ 📂 notebooks/          # Jupyter notebooks for training and EDA
  ┣ 📂 src/                # Python scripts (architectures, utils, train, eval)
  ┣ 📂 images/             # Plots, Confusion Matrices, and diagram images
@@ -120,7 +119,16 @@ This proves the model's portability across different Deep Learning frameworks wi
 
 1. **Clone the repository:**
    
-```bash
-   git clone https://github.com/your-username/EuroSat-Classification.git
-   cd EuroSat-Classification
+bash
+git clone https://github.com/Mehrdadkhd2003/EuroSat-Classification.git
+cd EuroSat-Classification
 
+2. **Install dependencies:**
+
+bash
+pip install -r requirements.txt
+
+3. **Run the Notebooks:**
+Navigate to the `notebooks` directory and run Jupyter to view the training process.
+bash
+jupyter notebook
