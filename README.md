@@ -66,14 +66,14 @@ Despite SqueezeNet having around 700,000 parameters, the **Inception-based archi
 
 ### 🏆 Model Comparison
 
-| Model | Parameters | Test Accuracy | Notes |
-|-------|------------|---------------|-------|
-| **Baseline CNN** | - | 94.02% | Custom built from scratch |
-| **Tuned CNN** | - | 94.30% | Optimized via Keras Tuner |
-| **⭐ Inception-based**| **~300k** | **94.69%** | **Best Performing Model** |
-| **ResNet** | - | 94.37% | - |
-| **SE-ResNet** | - | 93.56% | - |
-| **SqueezeNet** | ~700k | 87.98% | Lightweight architecture approach |
+| Model | Test Accuracy | Notes |
+|-------|---------------|-------|
+| **Baseline CNN** | 94.02% | Custom built from scratch |
+| **Tuned CNN** | 94.30% | Optimized via Keras Tuner |
+| **⭐ Inception-based**| **94.69%** | **Best Performing Model** |
+| **ResNet** | 94.37% | - |
+| **SE-ResNet** | 93.56% | - |
+| **SqueezeNet** | 87.98% | Lightweight architecture approach |
 
 ### 📈 Training Curves & Confusion Matrices
 *(Replace the placeholder links below with your actual image paths once you push to GitHub)*
