@@ -114,21 +114,3 @@ This proves the model's portability across different Deep Learning frameworks wi
  ┗ 📜 README.md           # Project documentation
 
 ---
-
-## 💻 How to Run
-
-1. **Clone the repository:**
-   
-bash
-git clone https://github.com/Mehrdadkhd2003/EuroSat-Classification.git
-cd EuroSat-Classification
-
-2. **Install dependencies:**
-
-bash
-pip install -r requirements.txt
-
-3. **Run the Notebooks:**
-Navigate to the `notebooks` directory and run Jupyter to view the training process.
-bash
-jupyter notebook
