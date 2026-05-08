@@ -109,9 +109,7 @@ This proves the model's portability across different Deep Learning frameworks wi
 ## 📁 Repository Structure
 ```text
 📦 EuroSat-Classification
- ┣ 📂 data/               # Instructions/scripts for downloading the dataset
  ┣ 📂 notebooks/          # Jupyter notebooks for training and EDA
- ┣ 📂 src/                # Python scripts (architectures, utils, train, eval)
  ┣ 📂 images/             # Plots, Confusion Matrices, and diagram images
  ┣ 📜 requirements.txt    # Dependencies
  ┗ 📜 README.md           # Project documentation
