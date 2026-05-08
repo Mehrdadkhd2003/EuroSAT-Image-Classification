@@ -75,7 +75,6 @@ Despite SqueezeNet having around 700,000 parameters, the **Inception-based archi
 | **SqueezeNet** | 87.98% | Lightweight architecture approach |
 
 ### 📈 Training Curves & Confusion Matrices
-*(Replace the placeholder links below with your actual image paths once you push to GitHub)*
 
 **Inception Model - Confusion Matrix:**
 <p align="center">
@@ -114,4 +113,4 @@ This proves the model's portability across different Deep Learning frameworks wi
  ┣ 📜 requirements.txt    # Dependencies
  ┗ 📜 README.md           # Project documentation
 
----
+
