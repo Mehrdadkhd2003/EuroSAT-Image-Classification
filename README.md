@@ -79,7 +79,7 @@ Despite SqueezeNet having around 700,000 parameters, the **Inception-based archi
 
 **Inception Model - Confusion Matrix:**
 <p align="center">
-  <img src="images/inception_confusion_matrix.png" alt="Inception Confusion Matrix" width="400"/>
+  <img src="images/inception_confusion_matrix.png" alt="Inception Confusion Matrix" width="600"/>
 </p>
 
 **Inception Model - Accuracy & Loss:**
