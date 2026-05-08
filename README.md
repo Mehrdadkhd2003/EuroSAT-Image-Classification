@@ -87,6 +87,10 @@ Despite SqueezeNet having around 700,000 parameters, the **Inception-based archi
   <img src="images/inception_loss_acc.png" alt="Inception Training Plots" width="600"/>
 </p>
 
+<p align="center">
+  <img src="images/best_model_accuracy.png" alt="Inception Training Plots" width="600"/>
+</p>
+
 *The diagonal dominance in our confusion matrices indicates strong class separation with very minimal inter-class confusion.*
 
 ---
